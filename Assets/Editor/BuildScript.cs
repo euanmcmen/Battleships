@@ -3,7 +3,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class BatchBuildScript
+public static class BuildScript
 {
     //Identify scenes.
     static string[] scenes = new string[3] { "Assets/Scenes/MenuScene.unity", "Assets/Scenes/SetupScene.unity", "Assets/Scenes/GameScene.unity" };
