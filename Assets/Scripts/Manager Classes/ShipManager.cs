@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-//This class contains methods and fields to enumarate all ships.
+//This class contains methods and fields to control all ships.
+//The main task for this class is to expose the ship objects for each ship instance to loop though while carrying out movement checks.
 public static class ShipManager
 {
     //The array of ships for use in the bounds check algorithm.

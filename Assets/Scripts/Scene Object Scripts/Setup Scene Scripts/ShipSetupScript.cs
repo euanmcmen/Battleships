@@ -32,6 +32,9 @@ public class ShipSetupScript : MonoBehaviour
     //A value to represent if the ship is selected.
     public bool isSelected = false;
 
+    //Setup Script Reference for accessing ship bound information.
+    SetupControlScript scs;
+
     void Start()
     {
         //Initialise the sprite renderer

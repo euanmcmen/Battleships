@@ -8,7 +8,6 @@ public class SetupControlScript : Photon.MonoBehaviour
 {
     //The array of ships
     GameObject[] shipObjects;
-    ShipSetupScript[] shipScripts;
 
     //The selected ship in the setup phase of the game.
     //The property uses get and set methods to control which ship is selected.
@@ -296,6 +295,20 @@ public class SetupControlScript : Photon.MonoBehaviour
             else if(Input.GetKeyDown(KeyCode.R))
                 selectedShip.RotateShip();
         }
+
+        //If the local player can recieve input, allow a ship to be selected using numbers 1, 2, or 3.
+        if (!localPlayer.isReady)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+                selectedShip = shipObjects[0].GetComponent<ShipSetupScript>();
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+                selectedShip = shipObjects[1].GetComponent<ShipSetupScript>();
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+                selectedShip = shipObjects[2].GetComponent<ShipSetupScript>();
+        }
+
+
+
 #endif
 
         //Quit when the back button or escape is pressed.

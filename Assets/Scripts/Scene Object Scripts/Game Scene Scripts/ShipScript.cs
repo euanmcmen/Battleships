@@ -23,6 +23,25 @@ public class ShipScript : MonoBehaviour
         }
     }
 
+    //Values to represent whether the ship took a hit in the current turn.
+    private bool privateTookHit;
+    public bool tookHit
+    {
+        get
+        {
+            //Only return true and reset if tookhit is true. 
+            if (privateTookHit)
+            {
+                //This resets the value of tookhit to false before returning what was the value of tookhit.
+                //This is only called when the field is accessed, thus "popping" the value.
+                bool temp = privateTookHit;
+                privateTookHit = false;
+                return temp;
+            }
+            else
+                return false;
+        }
+    }
     public void Start()
     {
         //Initialise the sprite renderer
@@ -38,7 +57,11 @@ public class ShipScript : MonoBehaviour
     //Takes a point off the ship's current health.
     public void TakeDamage()
     {
+        //Subtract health
         currentHealth--;
+
+        //Register a hit.
+        privateTookHit = true;
     }
 
     //Reveals the ship.

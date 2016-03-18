@@ -242,6 +242,16 @@ public class GameControlScript : Photon.MonoBehaviour
         mediumShipPanelText.text = shipScripts[1].GetHealthString();
         largeShipPanelText.text = shipScripts[2].GetHealthString();
 
+        //Check if ships took a hit.  If so, play the blink animation.
+        if (shipScripts[0].tookHit)
+            smallShipPanel.GetComponent<Animator>().Play("Blink");
+
+        if (shipScripts[1].tookHit)
+            mediumShipPanel.GetComponent<Animator>().Play("Blink");
+
+        if (shipScripts[2].tookHit)
+            largeShipPanel.GetComponent<Animator>().Play("Blink");
+
         //Check for the alive status of each ship and update the status panels and board if necessary.
         if (!shipScripts[0].isAlive)
             smallShipPanel.transform.GetChild(0).GetComponent<Image>().sprite = smallShipDestroyedIcon;
