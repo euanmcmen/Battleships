@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public static class BuildScript
 {
     //Identify scenes.
-    static string[] scenes = new string[3] { "Assets/Scenes/MenuScene.unity", "Assets/Scenes/SetupScene.unity", "Assets/Scenes/GameScene.unity" };
+    static string[] scenes = new string[3] { "Assets/Scenes/MenuScene.unity", "Assets/Scenes/SetupScene.unity", "Assets/Scenes/AttackScene.unity" };
 
     //The priority number reflects where in the custom menu the function is placed.
     //The numbering convention is xy wheere x is the "sction", seperated by a seperator, and y is the place in the whole menu.

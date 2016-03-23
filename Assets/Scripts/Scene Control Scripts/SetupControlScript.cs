@@ -199,13 +199,13 @@ public class SetupControlScript : Photon.MonoBehaviour
 
             //We can transition to the next scene and actually begin the game if neither of the players fleets are null
             //This "waiting" is for the network to recieve the opponent's fleet positions.
-            if (localPlayer.fleet != null && otherPlayer.fleet != null && !IsInvoking("OpenGameScene"))
+            if (localPlayer.fleet != null && otherPlayer.fleet != null && !IsInvoking("OpenAttackScene"))
             {
                 //Load the game from the master client after one second.
                 //Scene syncing will carry any other clients along.
                 if (PhotonNetwork.isMasterClient)
                 {
-                    Invoke("OpenGameScene", 1);
+                    Invoke("OpenAttackScene", 1);
                 }
             }
         }
@@ -325,7 +325,7 @@ public class SetupControlScript : Photon.MonoBehaviour
 
     //Launches the game scene.  This is called in an invoke method to start after a second.
     //This allows extra time for the rpc calls to finish and prevents desync errors.
-    void OpenGameScene()
+    void OpenAttackScene()
     {
         PhotonNetwork.LoadLevel(2);
     }
