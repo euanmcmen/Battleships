@@ -5,7 +5,7 @@
 public class ShipSetupScript : MonoBehaviour
 {
     //The containing bounding box of the board.
-    Bounds BoardBox;
+    Bounds boardBox;
 
     //The ship's bounding box.
     Bounds shipBounds;
@@ -32,9 +32,6 @@ public class ShipSetupScript : MonoBehaviour
     //A value to represent if the ship is selected.
     public bool isSelected = false;
 
-    //Setup Script Reference for accessing ship bound information.
-    SetupControlScript scs;
-
     void Start()
     {
         //Initialise the sprite renderer
@@ -42,7 +39,7 @@ public class ShipSetupScript : MonoBehaviour
         defaultSortingOrder = sRenderer.sortingOrder;
 
         //Locate the bounding boxes.
-        BoardBox = GameObject.Find("BoardBox").GetComponent<Collider>().bounds;
+        boardBox = GameObject.Find("BoardBox").GetComponent<Collider>().bounds;
         shipBounds = GetComponent<Collider>().bounds;        
     }
 
@@ -97,10 +94,11 @@ public class ShipSetupScript : MonoBehaviour
         }
     }
 
+    //This method confirms that the ship is moving to a legal position.
     bool ValidateShipMovement(Bounds newBounds)
     {
         //Check if the ship is still within the box.
-        if (newBounds.ContainedIn(BoardBox))
+        if (newBounds.ContainedIn(boardBox))
         {
             foreach (Bounds b in ShipManager.GetUnselectedShipBounds())
             {

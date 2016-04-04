@@ -14,9 +14,9 @@ public class AdaptabilityScript : MonoBehaviour
     protected GameObject activeCollection;
 
     // Use this for initialization
-    public void Start () 
+    public void Start() 
     {
-        //Depending on the platform, initialise the platform.
+        //Use Platform Dependant Compilation to adapt for the platform.
         #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
         {
             //Assign the active canvas to the desktop canvas.
@@ -28,13 +28,9 @@ public class AdaptabilityScript : MonoBehaviour
         {
             //Check the orentation of the device.
             if (Screen.orientation == ScreenOrientation.Portrait)
-            {
                 activeCollection = portraitMobileCollectionGO;
-            }
             else if (Screen.orientation == ScreenOrientation.LandscapeLeft || Screen.orientation == ScreenOrientation.LandscapeRight)
-            {
                 activeCollection = landscapeMobileCollectionGO;
-            }
 
             //Lock rotation of the device after the rotation has complete.
             SetAutoRotationCapability(false);

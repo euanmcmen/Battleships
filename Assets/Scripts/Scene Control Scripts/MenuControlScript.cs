@@ -20,10 +20,6 @@ public class MenuControlScript : Photon.MonoBehaviour
     //the waiting overlay.
     OverlayScript overlayController;
 
-    //The text strings catered to each platform.
-    const string DesktopInstructions = "MENU PHASE\r\nClick the Play button to prepare for the Setup phase.  It will begin when the other player is ready.\r\n\r\nSETUP PHASE\r\nClick one of the three ships, or use numbers 1, 2, or 3, to select a ship.  Use the arrow keys to move it and press the R key to rotate it if there is room.\r\nClick the Ready button when ready and wait for the other player.\r\n\r\nATTACK PHASE\r\nClick on up to three tiles to select them, and click the Fire button to attack those tiles and end your turn.\r\nThe amount of tiles selectable depends on how many active ships you have in your fleet.\r\nThe game will continue until one player has no active ships in their fleet.\r\n\r\nDuring any phase, click the Menu button to return to menu, or press the Escape key to exit the application.";
-    const string AndroidInstructions = "MENU PHASE\r\nTouch the Play button to prepare for the Setup phase.  It will begin when the other player is ready.\r\n\r\nSETUP PHASE\r\nTouch one of the three ships to select it.  Use the movement buttons to move it and rotate it within the grid if there is room.\r\nTouch the Ready button when ready and wait for the other player.\r\n\r\nATTACK PHASE\r\nTouch up to three tiles to select them, and touch the Fire button to attack those tiles and end your turn.\r\nThe amount of tiles selectable depends on how many active ships you have in your fleet.  The game will continue until one player has no active ships in their fleet.\r\n\r\nDuring any phase, touch the Menu button to return to menu, or press the back button on your device to exit the application.";
-  
     // Use this for initialization
     void Start()
     {
@@ -37,10 +33,10 @@ public class MenuControlScript : Photon.MonoBehaviour
 
         //Set the instructions text depending on platform.
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-        instructionsText.text = DesktopInstructions;
+        instructionsText.text = "MENU PHASE\r\nClick the Play button to prepare for the Setup phase.  It will begin when the other player is ready.\r\n\r\nSETUP PHASE\r\nClick one of the three ships, or use numbers 1, 2, or 3, to select a ship.  Use the arrow keys to move it and press the R key to rotate it if there is room.\r\nClick the Ready button when ready and wait for the other player.\r\n\r\nATTACK PHASE\r\nClick on up to three tiles to select them, and click the Fire button to attack those tiles and end your turn.\r\nThe amount of tiles selectable depends on how many active ships you have in your fleet.\r\nThe game will continue until one player has no active ships in their fleet.\r\n\r\nDuring any phase, click the Menu button to return to menu, or press the Escape key to exit the application.";
 #endif
 #if UNITY_ANDROID
-        instructionsText.text = AndroidInstructions;
+        instructionsText.text = "MENU PHASE\r\nTouch the Play button to prepare for the Setup phase.  It will begin when the other player is ready.\r\n\r\nSETUP PHASE\r\nTouch one of the three ships to select it.  Use the movement buttons to move it and rotate it within the grid if there is room.\r\nTouch the Ready button when ready and wait for the other player.\r\n\r\nATTACK PHASE\r\nTouch up to three tiles to select them, and touch the Fire button to attack those tiles and end your turn.\r\nThe amount of tiles selectable depends on how many active ships you have in your fleet.  The game will continue until one player has no active ships in their fleet.\r\n\r\nDuring any phase, touch the Menu button to return to menu, or press the back button on your device to exit the application.";
 #endif
 
         //Get the overlay controller.

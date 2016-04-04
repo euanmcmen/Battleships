@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using ExitGames.Client.Photon;
 
-//This class contains a collection of datapair classes, each with information pertaining to ship spawning.
-//Each collection holds 3 ship data pairs on the fleet position.
+//This class contains a set of datapair classes, each with information pertaining to ship spawning.
+//The fleet class makes up the position of the ships on the board.
 public class Fleet
 {
     //The ship positions
@@ -11,8 +11,8 @@ public class Fleet
     public ShipLocation largeShip;
 
     //The size of this object in bytes.
-    //Uses 3 shiplocations so size is 3xshiplocation size.
-    //Can't use sizeof for a reference type so we need to calculate this from the value type data (floats and ints)
+    //ShipLocation size: (sizeof(float) * 2) + sizeof(int). 
+    //Fleet is comprised of 3 shiplocations.
     public static int size = ShipLocation.size * 3;
 
     //Constuctor for the fleet.
@@ -31,8 +31,8 @@ public class Fleet
             smallShip.position, smallShip.rotation, mediumShip.position, mediumShip.rotation, largeShip.position, largeShip.rotation);
     }
 
-    //Serializes the fleet for use with Photon
-    //Must have a byte[] return and take in an object.
+    //Serializes the fleet for use with Photon serialization.
+    //Must have a byte[] return and take in an object type.
     public static byte[] Serialize(object obj)
     {
         //Cast the object to a fleet object
@@ -59,6 +59,7 @@ public class Fleet
     }
 
     //Deserialize method for photon.
+    //Must take in a byte[] and output a Fleet type.
     public static Fleet Deserialize(byte[] bytes)
     {
         //Initialise the objects to retrieve from the byte array.

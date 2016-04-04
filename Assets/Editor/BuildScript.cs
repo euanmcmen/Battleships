@@ -8,8 +8,8 @@ public static class BuildScript
     //Identify scenes.
     static string[] scenes = new string[3] { "Assets/Scenes/MenuScene.unity", "Assets/Scenes/SetupScene.unity", "Assets/Scenes/AttackScene.unity" };
 
-    //The priority number reflects where in the custom menu the function is placed.
-    //The numbering convention is xy wheere x is the "sction", seperated by a seperator, and y is the place in the whole menu.
+    //The priority number reflects where the option appears in the custom menu.
+    //The numbering convention is xy wheere x is the "section", seperated by a seperator, and y is the position in the whole menu.
     //There must be a difference of at least 10 between the previous section last function, and the new section first function.
     [@MenuItem("Custom/Batch Build",false, 01)]
     static void BatchBuild()

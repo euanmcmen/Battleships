@@ -66,7 +66,6 @@ public class TimerScript : MonoBehaviour
     {
         if (timer == 0)
         {
-            //timer = -1;
             timerExpiredCallback.Invoke();
             print("Invoked");
         }
